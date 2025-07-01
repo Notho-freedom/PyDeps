@@ -3,7 +3,7 @@
 # Configuration
 REPO="Notho-freedom/PyDeps"
 SCRIPT_NAME="pyDeps.py"
-RAW_URL="https://raw.githubusercontent.com/$REPO/master/$SCRIPT_NAME"
+RAW_URL="https://github.com/$REPO/master/$SCRIPT_NAME"
 BIN_DIR="$HOME/.local/bin"
 
 # Crée le dossier s'il n'existe pas
