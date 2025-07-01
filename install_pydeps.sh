@@ -1,27 +1,31 @@
 #!/bin/bash
 
-# Configuration
+# Variables
 REPO="Notho-freedom/PyDeps"
 SCRIPT_NAME="pyDeps.py"
-RAW_URL="https://github.com/$REPO/blob/master/$SCRIPT_NAME"
+RAW_URL="https://raw.githubusercontent.com/$REPO/master/$SCRIPT_NAME"
 BIN_DIR="$HOME/.local/bin"
 
-# Crée le dossier s'il n'existe pas
+echo "➡️ Installation de PyDeps..."
+
+# Création du dossier si inexistant
 mkdir -p "$BIN_DIR"
 
-# Télécharge le script
-echo "➡️ Téléchargement de pyDeps.py..."
+# Téléchargement du script
 curl -fsSL "$RAW_URL" -o "$BIN_DIR/pydeps"
 chmod +x "$BIN_DIR/pydeps"
 
-# Ajoute BIN_DIR au PATH si absent
+# Vérifie si le dossier est déjà dans le PATH
 if ! echo "$PATH" | grep -q "$BIN_DIR"; then
-  echo "export PATH=\"$BIN_DIR:\$PATH\"" >> "$HOME/.bashrc"
-  echo "export PATH=\"$BIN_DIR:\$PATH\"" >> "$HOME/.zshrc"
-  echo "✅ PATH mis à jour dans .bashrc et .zshrc"
+    echo "export PATH=\"$BIN_DIR:\$PATH\"" >> "$HOME/.bashrc"
+    echo "export PATH=\"$BIN_DIR:\$PATH\"" >> "$HOME/.zshrc"
+    echo "✅ PATH ajouté à .bashrc et .zshrc"
+else
+    echo "✅ $BIN_DIR est déjà dans le PATH."
 fi
 
-echo "✅ Installation terminée. Relance ton terminal ou exécute :"
+echo ""
+echo "✅ Installation terminée ! Relance ton terminal ou exécute :"
 echo "    source ~/.bashrc"
 echo ""
-echo "Tu peux maintenant exécuter : pydeps"
+echo "Tu peux maintenant utiliser la commande : pydeps"

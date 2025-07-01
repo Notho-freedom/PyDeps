@@ -1,18 +1,22 @@
+# Variables
 $repo = "Notho-freedom/PyDeps"
 $scriptName = "pyDeps.py"
-$rawUrl = "https://github.com/$repo/blob/master/$scriptName"
+$rawUrl = "https://raw.githubusercontent.com/$repo/master/$scriptName"
 $binDir = "$HOME\bin"
+
+Write-Output "➡️ Installation de PyDeps..."
 
 # Crée le dossier s'il n'existe pas
 if (-not (Test-Path $binDir)) {
     New-Item -ItemType Directory -Path $binDir | Out-Null
+    Write-Output "✅ Dossier $binDir créé."
 }
 
 # Télécharge le script
-Write-Output "➡️ Téléchargement de pyDeps.py..."
 Invoke-WebRequest -Uri $rawUrl -OutFile "$binDir\pydeps.py"
+Write-Output "✅ Script téléchargé dans $binDir\pydeps.py"
 
-# Ajoute le dossier au PATH utilisateur si absent
+# Ajout du dossier au PATH utilisateur s'il n'y est pas déjà
 $oldPath = [Environment]::GetEnvironmentVariable("Path", "User")
 if (-not $oldPath.Split(";") -contains $binDir) {
     $newPath = "$oldPath;$binDir"
@@ -22,5 +26,6 @@ if (-not $oldPath.Split(";") -contains $binDir) {
     Write-Output "✅ $binDir est déjà dans la variable PATH."
 }
 
-Write-Output "✅ Installation terminée. Tu peux maintenant exécuter le script ainsi :"
+Write-Output ""
+Write-Output "✅ Installation terminée ! Tu peux maintenant exécuter le script ainsi :"
 Write-Output "    python $binDir\pydeps.py"
