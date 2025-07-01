@@ -1,5 +1,6 @@
 #!/usr/bin/env pwsh
 # deps.ps1
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 
 param (
     [Parameter(ValueFromRemainingArguments=$true)]
