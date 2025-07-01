@@ -1,6 +1,7 @@
 #!/usr/bin/env pwsh
 # deps.ps1
-Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
+
 
 param (
     [Parameter(ValueFromRemainingArguments=$true)]
