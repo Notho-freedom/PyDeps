@@ -1,6 +1,6 @@
 $repo = "Notho-freedom/PyDeps"
 $scriptName = "pyDeps.py"
-$rawUrl = "https://github.com/$repo/master/$scriptName"
+$rawUrl = "https://github.com/$repo/blob/master/$scriptName"
 $binDir = "$HOME\bin"
 
 # Crée le dossier s'il n'existe pas
